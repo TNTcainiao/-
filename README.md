@@ -1,2 +1,1 @@
-# -
-小白的开始
+print("hello,world")
