@@ -1,0 +1,17 @@
+import requests
+import json
+
+
+URL = "https://movie.douban.com/j/search_subjects?type=tv&tag=%E7%BE%8E%E5%89%A7&sort=recommend&page_limit={}&page_start=0"
+
+headers = {"user-agent":"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36"}
+
+num = 100 #想要取得的电视剧数目
+
+response = requests.get(URL.format(num), headers=headers)
+
+content = json.loads(response.content.decode())
+
+for i in range(num):
+    print(content["subjects"][i]["title"] + "   " +content["subjects"][i]["rate"] )
+
